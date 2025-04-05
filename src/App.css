@@ -72,7 +72,7 @@ input#Message-button::placeholder {
 
 
 div#mainBody {
-  height: 80%;
+  height: 90%;
   width: 95%;
   display: flex;
   flex-direction: column;
@@ -81,10 +81,8 @@ div#mainBody {
 }
 
 div#input-submit-div {
-height: 10%;
 background-color: rgba(255, 255, 255, 0.197);
 backdrop-filter: blur(10px);
-padding: 20px;
 border-radius: 10px;
 width: 90%;
 display: flex;
@@ -95,8 +93,8 @@ justify-content: center;
 div#chat-box {
   overflow-x: hidden;
   overflow-y: auto;
-  height: 90%;
-  width: 90%;
+  height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -111,13 +109,12 @@ div#chat-box {
 
 
 div#inner-mainDiv {
-  height: 98%;
-  width: 98%;
+  height: 100%;
+  width: 100%;
   display: flex;
   gap: 10px;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 /*buttons */
 
@@ -164,18 +161,13 @@ button#send-button:hover {
 }
 
 .message {
-  animation: fadeInUp 0.3s ease-in-out;
+  animation: fadeInUp 0.8s ease-in-out;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 
-.message-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
 .avatar {
   width: 30px;
@@ -186,4 +178,60 @@ button#send-button:hover {
 
 p {
   margin: 0px;
+}
+
+div#timestamp {
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+p#message-header {
+  display: flex;
+  gap: 10px;
+}
+
+div#settingsDiv {
+  height: 100%;
+  width: 95%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.div-back-color {
+  background-color: rgba(255, 255, 255, 0.197);
+  backdrop-filter: blur(10px);
+}
+
+.div-animation {
+  animation: DivShow 0.5s ease-in-out;
+
+}
+
+
+.button-transparent {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+
+
+
+
+
+
+
+
+
+/*animations*/
+
+@keyframes DivShow {
+  from {
+transform: scale(0.001);
+} to {
+  transform: scale(1);
+}
 }

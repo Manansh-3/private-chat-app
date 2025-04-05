@@ -84,9 +84,15 @@ const Chat = () => {
                 style={{ width: "30px", height: "30px", borderRadius: "50%", marginRight: "10px" }}
               />
             )}
-            <p> 
-              <strong style={{ fontSize: "15px" }}>{msg.user}<br /></strong> {msg.text}
+            <div id="message-box">
+            <p id="message-header" > 
+              <strong style={{ fontSize: "15px" }}>{msg.user}</strong>
+              <p>{msg.timestamp?.toDate?.().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
+              
             </p>
+            {msg.text}
+            </div>
+           
           </div>
         ))}
 
