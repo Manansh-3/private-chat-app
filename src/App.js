@@ -4,7 +4,7 @@ import Auth from "./components/auth";
 import "./App.css"; 
 import MainBody from "./components/Mainbody";
 import Alert from "./components/alert";
-import SettingsMenu from "./components/Settings";
+import SettingsMenu from "./components/settings";
 
 
 function App() {
