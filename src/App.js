@@ -14,13 +14,20 @@ import { useEffect } from "react";
 import { color } from "framer-motion";
 
 
+
+
 function App() {
   const [user, setUser] = useState(null);
   const [alert, setAlert] = useState(null);
   const [view, setView] = useState('chat');
+  
+  const showAlert = (message) => {
+    setAlert({ message});
+  };
 
   useEffect(() => {
     if (user) {
+      setAlert({ message: `Welcome ${user.displayName || user.email}!` });
       loadColorsFromFirestore().then(({ color1, color2 }) => {
         console.log({ color1, color2 });
         if (color1 && color2) {
@@ -35,9 +42,7 @@ function App() {
     }
   }, [user]);
 
-  const showAlert = (message, type) => {
-    setAlert({ message, type });
-  };
+  
 
   return (
     
@@ -52,8 +57,8 @@ function App() {
           </button>
       </header>
       {view === "chat" && < MainBody user={user} />}
-      {view === "settings" && <SettingsMenu />}
-      {alert && <Alert message={alert.message} type={alert.type} onClose={() => setAlert(null)} />}
+      {view === "settings" && <SettingsMenu  setAlert={setAlert}/>}
+      {alert && <Alert message={alert.message} onClose={() => setAlert(null)} />}
     </div>
   );
 }

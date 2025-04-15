@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import "../css/Alert.css"
 
-const Alert = ({ message, type, onClose }) => {
+const Alert = ({ message, onClose }) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Alert = ({ message, type, onClose }) => {
   }, [onClose]);
 
   return (
-    <div className={`alert alert-${type} ${visible ? "show" : "hide"}`}>
+    <div className={`alert ${visible ? "show" : "hide"}`}>
       {message}
       <button className="close-btn" onClick={onClose}>×</button>
     </div>

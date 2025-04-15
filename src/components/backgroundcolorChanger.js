@@ -6,9 +6,12 @@ import Alert from './alert';
 import { getFirestore } from 'firebase/firestore';
 
 
+
 const loadColorsFromFirestore = async () => {
   const userId = auth.currentUser.uid;
   const db = getFirestore();
+
+
 
   try {
     const userDocRef = doc(db, "currentUsers", userId); // Points to /users/{userId}
@@ -25,9 +28,10 @@ const loadColorsFromFirestore = async () => {
   }
 };
 
-const BackgroundColorChanger = () => {
+const BackgroundColorChanger = ({setAlert}) => {
     const [color1, setColor1] = useState('#8600f5');
     const [color2, setColor2] = useState('#de00fb');
+    
     const handleChange = (event) => {
         setColor1(event.target.value);
         document.getElementById("mainDiv").style.background = `linear-gradient(${color1}, ${color2})`;
@@ -48,6 +52,7 @@ const saveColorsToFirebase = async (color1, color2) => {
         color2
     });
     console.log("Colors saved to Firebase:", { color1, color2 });
+    setAlert({ message: "Colors saved successfully!" });
 };
 
  
@@ -73,7 +78,7 @@ const saveColorsToFirebase = async (color1, color2) => {
             />
             </div>
            
-            <button onClick={() => saveColorsToFirebase(color1, color2)} className='normal-button div-animation-up'>Save Colors</button>
+            <button onClick={() => saveColorsToFirebase(color1, color2)} className='normal-button div-animatio       ass  <button onClicormal-buttnimaon-up'>Save Colors</button>
             
         </div>
     );
