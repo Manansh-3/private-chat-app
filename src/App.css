@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -117,7 +118,54 @@ div#inner-mainDiv {
   flex-direction: column;
   align-items: center;
 }
+
+div.colorChangerDiv {
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.197);
+  height: 150px;
+  width: 90%;
+  display: flex;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+div#colorInputs {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+input.colorInput {
+  height: 30px;
+  width: 30px;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.197);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
 /*buttons */
+
+.normal-button {
+  height: 30px;
+  width: 140px;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid white;
+  color: white;
+  font-size: 14px;
+  border-radius: 20px;
+  transition-duration: 0.1s;
+}
+.normal-button:hover {
+  transform: scale(1.02);
+  color: black;
+  background-color: white;
+}
 
 .login-btn {
   height: 30px;
@@ -150,16 +198,6 @@ button#send-button:hover {
 
 
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 .message {
   animation: fadeInUp 0.8s ease-in-out;
@@ -197,6 +235,7 @@ div#settingsDiv {
   width: 95%;
   border-radius: 10px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -209,6 +248,10 @@ div#settingsDiv {
 .div-animation {
   animation: DivShow 0.5s ease-in-out;
 
+}
+
+.div-animation-up {
+  animation: divUp 0.5s ease-in-out;
 }
 
 
@@ -243,11 +286,3 @@ div#settingsDiv {
 
 
 /*animations*/
-
-@keyframes DivShow {
-  from {
-transform: scale(0.001);
-} to {
-  transform: scale(1);
-}
-}

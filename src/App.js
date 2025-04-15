@@ -2,9 +2,16 @@
 import React, { useState } from "react";
 import Auth from "./components/auth";
 import "./App.css"; 
+import "./css/animations.css"
 import MainBody from "./components/Mainbody";
 import Alert from "./components/alert";
 import SettingsMenu from "./components/settings";
+import { loadColorsFromFirestore } from "./components/backgroundcolorChanger";
+import { getFirestore } from "firebase/firestore";
+import { doc, setDoc, getDoc } from "firebase/firestore";
+import { auth } from "./firebase/firebaseConfig";
+import { useEffect } from "react";
+import { color } from "framer-motion";
 
 
 function App() {
@@ -12,6 +19,21 @@ function App() {
   const [alert, setAlert] = useState(null);
   const [view, setView] = useState('chat');
 
+  useEffect(() => {
+    if (user) {
+      loadColorsFromFirestore().then(({ color1, color2 }) => {
+        console.log({ color1, color2 });
+        if (color1 && color2) {
+          document.getElementById("mainDiv").style.background = `linear-gradient(${color1}, ${color2})`;
+        } else {
+          console.log("No colors found for this user. Setting default colors.");
+          document.getElementById("mainDiv").style.background = `linear-gradient(#8600f5, #de00fb)`;
+        }
+      }).catch(error => {
+        console.error("Error loading colors:", error);
+      });
+    }
+  }, [user]);
 
   const showAlert = (message, type) => {
     setAlert({ message, type });
