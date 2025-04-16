@@ -73,7 +73,7 @@ const Chat = () => {
 
   return (
     <div id="inner-mainDiv">
-      <div id="chat-box" ref={chatBoxRef} style={{ overflowY: "auto", maxHeight: "400px" }}>
+      <div id="chat-box" ref={chatBoxRef} style={{ overflowY: "auto"}}>
         {messages.map(msg => (
           <div key={msg.id} className="message" style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
             {msg.avatar && (

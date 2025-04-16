@@ -95,7 +95,7 @@ justify-content: center;
 div#chat-box {
   overflow-x: hidden;
   overflow-y: auto;
-  height: 100vh;
+  height: 85%;
   width: 100%;
   display: flex;
   flex-direction: column;
